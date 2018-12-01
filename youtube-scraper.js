@@ -5,11 +5,7 @@ const getParams = (url) => {
     return JSON.parse('{"' + decodeURI(url).replace('watch?','').replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
 }  
 
-exports.printMsg = function() {
-    console.log("This is a message from the demo package");
-  }
-
-exports.scrape = async function(id){
+exports.scrapePlaylist = async function(id){
     var html =  await rp(`https://www.youtube.com/playlist?list=${id}`)
     
     
